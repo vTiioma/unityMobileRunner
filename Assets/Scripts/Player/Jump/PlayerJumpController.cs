@@ -6,6 +6,17 @@ public class PlayerJumpController : PlayerJumpApp {
         InputObserver.onInputDown += OnInputDown;
         InputObserver.onInput += OnInput;
         InputObserver.onInputUp += OnInputUp;
+
+        GameObserver.onGameStart += OnGameStart;
+        GameObserver.onGameOver += OnGameOver;
+    }
+
+    private void OnGameStart() {
+        model.Jump(0.0f);
+    }
+
+    private void OnGameOver() {
+        model.Jump(0.0f);
     }
 
     protected virtual void OnInputDown(InputArgs args) {
@@ -13,11 +24,11 @@ public class PlayerJumpController : PlayerJumpApp {
         if (args is MouseInputArgs) {
             MouseInputArgs mouseArgs = (MouseInputArgs)args;
             //Debug.Log("Mouse position on press down " + mouseArgs.position.ToString() + ", at " + mouseArgs.time.ToString("0.00") + " seconds.");
-            model.Jump(1);
+            model.Jump(1.0f);
         } else if (args is TouchInputArgs) {
             TouchInputArgs touchArgs = (TouchInputArgs)args;
             //Debug.Log("Touch position on press down " + touchArgs.position.ToString() + ", at " + touchArgs.time.ToString("0.00") + " seconds.");
-            model.Jump(1);
+            model.Jump(1.0f);
         }
     }
 

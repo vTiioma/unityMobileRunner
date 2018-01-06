@@ -10,10 +10,8 @@ public class PlayerMovementModel {
     }
 
     public virtual void UpdateSpeed(float amount) {
-        speed += amount;
-
-        if (onUpdateSpeed != null) {
-            onUpdateSpeed(speed);
+        if (this.onUpdateSpeed != null) {
+            this.onUpdateSpeed(amount);
         }
     }
 }
