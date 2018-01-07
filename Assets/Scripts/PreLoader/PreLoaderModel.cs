@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-public class PreLoaderModel : MonoBehaviour {
+public class PreLoaderModel {
+    public event Action OnLoad;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    //public static implicit operator bool ()
+
+    public virtual void Load()
+    {
+        if (OnLoad != null)
+        {
+            OnLoad();
+        }
+    }
 }

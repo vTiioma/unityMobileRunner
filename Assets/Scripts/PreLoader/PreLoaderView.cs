@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PreLoaderView : MonoBehaviour {
+public class PreLoaderView : PreLoaderApp {
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		
 	}
 	
