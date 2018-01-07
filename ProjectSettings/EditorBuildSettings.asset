@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Sprites/UI/PreLoader.unity
+    guid: 62c699c1366a990449edcfa269bf4721
+  - enabled: 1
+    path: Assets/Scenes/TestLevel01.unity
+    guid: cba3afe8b5be5a54bace662361c1120d
