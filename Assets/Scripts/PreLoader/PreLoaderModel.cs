@@ -1,15 +1,29 @@
 ﻿using System;
+using UnityEngine;
 
-public class PreLoaderModel {
-    public event Action OnLoad;
+[RequireComponent(typeof(PreLoaderController))]
+public class PreLoaderModel
+{
+    public event Action onLoad;
 
-    //public static implicit operator bool ()
+    [SerializeField]
+    PreLoaderController preloadControl;
+
+    protected virtual void Start()
+    {
+        preloadControl.onInput += Load;
+    }
+
+    public static implicit operator bool(PreLoaderModel reference)
+    {
+        return reference != null;
+    }
 
     public virtual void Load()
     {
-        if (OnLoad != null)
+        if (onLoad != null)
         {
-            OnLoad();
+            onLoad();
         }
     }
 }

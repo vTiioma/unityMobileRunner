@@ -1,16 +1,77 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
+public class PreLoaderController : PreLoaderApp
+{
 
-public class PreLoaderController : MonoBehaviour {
+    public event Action onInput;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected virtual void Start()
+    {
+        InputObserver.onInputDown += OnInputDown;
+        InputObserver.onInput += OnInput;
+        InputObserver.onInputUp += OnInputUp;
+    }
+
+    protected virtual void OnInputUp(InputArgs args)
+    {
+        if (args is MouseInputArgs)
+        {
+            if (onInput != null)
+            {
+                Debug.Log("Input happened!!!");
+                onInput();
+            }
+        }
+        else if (args is TouchInputArgs)
+        {
+
+            if (onInput != null)
+            {
+                Debug.Log("Input happened!!!");
+                onInput();
+            }
+        }
+    }
+
+    protected virtual void OnInputDown(InputArgs args)
+    {
+        if (args is MouseInputArgs)
+        {
+            if (onInput != null)
+            {
+                Debug.Log("Input happened!!!");
+                onInput();
+            }
+        }
+        else if (args is TouchInputArgs)
+        {
+
+            if (onInput != null)
+            {
+                Debug.Log("Input happened!!!");
+                onInput();
+            }
+        }
+    }
+
+    protected virtual void OnInput(InputArgs args)
+    {
+        if (args is MouseInputArgs)
+        {
+            if (onInput != null)
+            {
+                Debug.Log("Input happened!!!");
+                onInput();
+            }
+        }
+        else if (args is TouchInputArgs)
+        {
+
+            if (onInput != null)
+            {
+                Debug.Log("Input happened!!!");
+                onInput();
+            }
+        }
+    }
 }
